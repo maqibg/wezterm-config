@@ -229,7 +229,10 @@ function Tab:set_info(event_opts, tab, max_width)
       self.title = create_title('', self.locked_title, max_width, inset)
       return
    end
-   self.title = create_title(process_name, tab.active_pane.title, max_width, inset)
+
+   -- Use process name instead of pane title to avoid showing "Administrator"
+   local full_process_name = tab.active_pane.foreground_process_name:match('([^/\\]+)$') or tab.active_pane.foreground_process_name
+   self.title = create_title(process_name, full_process_name, max_width, inset)
 end
 
 function Tab:create_cells()

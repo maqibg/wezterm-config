@@ -61,7 +61,7 @@ local keys = {
    -- tabs: spawn+close
    { key = 't',          mods = mod.SUPER,     action = act.SpawnTab('DefaultDomain') },
    { key = 't',          mods = mod.SUPER_REV, action = act.SpawnTab({ DomainName = 'wsl:ubuntu-fish' }) },
-   { key = 'w',          mods = mod.SUPER_REV, action = act.CloseCurrentTab({ confirm = false }) },
+   { key = 'w',          mods = 'CTRL',        action = act.CloseCurrentTab({ confirm = false }) },
 
    -- tabs: navigation
    { key = '[',          mods = mod.SUPER,     action = act.ActivateTabRelative(-1) },
@@ -245,7 +245,15 @@ local mouse_bindings = {
       mods = 'CTRL',
       action = act.OpenLinkAtMouseCursor,
    },
+   -- Right-click to paste
+   {
+      event = { Down = { streak = 1, button = 'Right' } },
+      mods = 'NONE',
+      action = act.PasteFrom('Clipboard'),
+   },
 }
+
+require('config.mouse_split_menu').append_to_mouse_bindings(mouse_bindings)
 
 return {
    disable_default_key_bindings = true,

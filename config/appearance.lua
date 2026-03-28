@@ -30,7 +30,7 @@ return {
    -- tab bar
    enable_tab_bar = true,
    hide_tab_bar_if_only_one_tab = false,
-   use_fancy_tab_bar = false,
+   use_fancy_tab_bar = true,
    tab_max_width = 25,
    show_tab_index_in_tab_bar = false,
    switch_to_last_active_tab_when_closing_tab = true,
@@ -45,15 +45,18 @@ return {
    window_padding = {
       left = 0,
       right = 0,
-      top = 10,
+      top = 15,
       bottom = 7.5,
    },
    adjust_window_size_when_changing_font_size = false,
    window_close_confirmation = 'NeverPrompt',
    window_frame = {
       active_titlebar_bg = '#090909',
-      -- font = fonts.font,
-      -- font_size = fonts.font_size,
+      font = require('wezterm').font({
+         family = 'Maple Mono NF CN',
+         weight = 'Medium',
+      }),
+      font_size = 13.0,
    },
    -- inactive_pane_hsb = {
    --    saturation = 0.9,

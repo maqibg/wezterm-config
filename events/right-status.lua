@@ -107,11 +107,17 @@ M.setup = function(opts)
          :update_segment_text('battery_icon', battery_icon)
          :update_segment_text('battery_text', battery_text)
 
+      local parts = { 'date_icon', 'date_text' }
+      
+      if battery_text ~= '' then
+         table.insert(parts, 'separator')
+         table.insert(parts, 'battery_icon')
+         table.insert(parts, 'battery_text')
+      end
+      
       window:set_right_status(
-         wezterm.format(
-            cells:render({ 'date_icon', 'date_text', 'separator', 'battery_icon', 'battery_text' })
-         )
-      )
+         wezterm.format(cells:render(parts))
+          )
    end)
 end
 

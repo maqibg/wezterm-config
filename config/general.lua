@@ -8,6 +8,15 @@ return {
 
    scrollback_lines = 20000,
 
+   -- IME (Input Method Editor)
+   use_ime = true,
+   ime_preedit_rendering = 'Builtin', -- Make IME candidate window follow cursor
+
+   -- window position and size
+   window_decorations = 'INTEGRATED_BUTTONS|RESIZE',
+   initial_cols = 120,
+   initial_rows = 30,
+
    hyperlink_rules = {
       -- Matches: a URL in parens: (URL)
       {

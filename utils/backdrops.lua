@@ -26,7 +26,7 @@ function BackDrops:init()
    local inital = {
       current_idx = 1,
       images = {},
-      images_dir = wezterm.config_dir .. '/backdrops/',
+      images_dir = wezterm.config_dir .. '/image/',
       focus_color = colors.background,
       focus_on = false,
    }
