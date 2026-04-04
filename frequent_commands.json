@@ -1,0 +1,1 @@
+[{"label":"显示当前目录","command":"pwd"},{"label":"列出文件","command":"ls"},{"label":"test","command":"test1"}]
